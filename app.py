@@ -19,10 +19,7 @@ from datetime import datetime
 import warnings
 warnings.filterwarnings("ignore")
 
-data = pd.read_csv("/content/all_stocks_5yr.csv", delimiter=',', on_bad_lines='skip')
-print(data.shape)
-print(data.sample(7))', delimiter=',', on_bad_lines='skip')
-print(data.shape)
+data = pd.read_csv('all_stocks_5yr.csv.zip', delimiter=',', on_bad_lines='skip')
 print(data.sample(7))
 
 data.info()

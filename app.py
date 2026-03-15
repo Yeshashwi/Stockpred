@@ -18,6 +18,28 @@ if stock_symbol:
     st.write(f"You selected stock: {stock_symbol}")
     st.write("Loading predictions... (see below)")
 
+# --- Dataset Input Section ---
+
+# Option 1: Upload a dataset file (CSV or PDF)
+uploaded_file = st.file_uploader("Upload your dataset file (CSV or PDF)", type=["csv", "pdf"])
+
+# Option 2: Enter a dataset link (URL)
+dataset_link = st.text_input("Or enter a dataset link (URL):")
+
+# Display feedback
+if uploaded_file is not None:
+    st.write(f"File uploaded: {uploaded_file.name}")
+    # Example: if CSV, you can read it with pandas
+    if uploaded_file.name.endswith(".csv"):
+        import pandas as pd
+        data = pd.read_csv(uploaded_file)
+        st.write("Preview of uploaded dataset:")
+        st.write(data.head())
+
+elif dataset_link:
+    st.write(f"Dataset link entered: {dataset_link}")
+    st.write("You can use this link to fetch the dataset in your code.")
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np

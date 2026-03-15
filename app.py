@@ -1,4 +1,22 @@
+import streamlit as st
 
+# --- Simple UI Section ---
+st.title("📈 Stock Prediction App")
+
+# Ask for user name
+user_name = st.text_input("Enter your name:")
+
+# Ask for dataset input (stock symbol/company)
+stock_symbol = st.text_input("Enter the stock symbol (e.g., AAPL, MSFT):")
+
+# Display greeting if user provided name
+if user_name:
+    st.write(f"Hello, {user_name}! Welcome to the Stock Prediction App.")
+
+# Display chosen stock if provided
+if stock_symbol:
+    st.write(f"You selected stock: {stock_symbol}")
+    st.write("Loading predictions... (see below)")
 
 import pandas as pd
 import matplotlib.pyplot as plt
